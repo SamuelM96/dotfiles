@@ -12,7 +12,7 @@ let mapleader = ","
 
 call plug#begin('~/.vim/autoload/plugged')
 
-Plug '~/.fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'scrooloose/syntastic'
 " Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'

@@ -139,10 +139,6 @@ alias vim='nvim'
 alias vimdiff='nvim -d'
 export EDITOR=nvim
 
-# fzf
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-
 # Navi
 eval "$(navi widget zsh)"
 
@@ -165,3 +161,5 @@ rga-fzf() {
 autoload -U bashcompinit
 bashcompinit
 eval "$(register-python-argcomplete pipx)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
