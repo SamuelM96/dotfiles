@@ -10,9 +10,13 @@ set shiftwidth=4
 filetype plugin indent on
 let mapleader = ","
 
+" Save file as sudo
+cmap w!! w !sudo tee > /dev/null %
+
 call plug#begin('~/.vim/autoload/plugged')
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf', { 'dir':'~/.fzf', 'do': { -> fzf#install()  }  }
+Plug 'tpope/vim-obsession'
 Plug 'scrooloose/syntastic'
 " Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -68,6 +72,6 @@ let g:LanguageClient_serverCommands = {
 \}
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> H :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <leader> H :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
