@@ -168,3 +168,5 @@ eval "$(register-python-argcomplete pipx)"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 alias tmx=tmuxinator
+
+source /home/samm/.zshrc.local
