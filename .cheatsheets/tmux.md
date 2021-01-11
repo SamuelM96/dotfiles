@@ -139,10 +139,10 @@ Prefix: `Ctrl+a`
 ### Logging
 | Shortcut  | Description |
 |-----------|-------------|
-|P			Start/stop logging (creates log in current directory)|
-|Alt-p		"Screen capture" current visible text in the pane|
-|Alt-P		Save complete pane history|
-|Alt-c		Clear pane history|
+|P			|Start/stop logging (creates log in current directory)|
+|Alt-p		|"Screen capture" current visible text in the pane|
+|Alt-P		|Save complete pane history|
+|Alt-c		|Clear pane history|
 
 ### Sessionist
 | Shortcut  | Description |
@@ -153,7 +153,7 @@ Prefix: `Ctrl+a`
 |S			|Switch to last sessions|
 |@			|Promote pane to session|
 |t<key>		|Join marked pane to current session|
-- \<key>
+- `<key>`
 	- `h`, `-`, `"`: 	Join horizontally
 	- `v`, `|`, `%`: 	Join vertically
 	- `f`, `@`: 		Join full screen
