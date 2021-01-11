@@ -170,5 +170,3 @@ export PATH="$PATH:$HOME/.rvm/bin"
 alias tmx=tmuxinator
 
 source /home/samm/.zshrc.local
-
-eval `ssh-agent -s` >/dev/null
