@@ -169,4 +169,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 alias tmx=tmuxinator
 
+if [ ! -f ~/.zshrc.local ]; then
+	touch ~/.zshrc.local
+fi
 source /home/samm/.zshrc.local
