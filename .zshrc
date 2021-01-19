@@ -168,3 +168,10 @@ eval "$(register-python-argcomplete pipx)"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 alias tmx=tmuxinator
+
+alias gitpullall='find . -name ".git" -type d | sed "s/\/.git//" |  xargs -P10 -I{} git -C {} pull'
+
+if [ ! -f ~/.zshrc.local ]; then
+	touch ~/.zshrc.local
+fi
+source /home/samm/.zshrc.local
