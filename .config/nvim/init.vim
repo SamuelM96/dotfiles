@@ -34,7 +34,7 @@ call plug#end()
 
 " Theme
 syntax on
-set termguicolors
+" set termguicolors
 set background=dark
 colorscheme deep-space
 let g:airline_theme='deus'
