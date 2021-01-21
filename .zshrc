@@ -49,7 +49,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# Locale settings
+export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 # Powerlevel10k
