@@ -1,4 +1,3 @@
-" set termguicolors
 set  hlsearch        "  Highlight searches
 set  showmatch       "  Shows matching bracer
 set  autoindent      "  Auto indents newlines
@@ -16,45 +15,33 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Plugins
 call plug#begin('~/.vim/autoload/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir':'~/.fzf', 'do': { -> fzf#install()  }  }
 Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'jparise/vim-graphql'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for': ['markdown', 'vim-plug'] }
+Plug 'tyrannicaltoucan/vim-deep-space'
 " Plug 'scrooloose/nerdcommenter'
 " Plug 'scrooloose/nerdtree'
-" Plug 'davidhalter/jedi-vim'
-" Plug 'Shougo/deoplete.nvim', {'do':'UpdateRemotePlugins'}
-" Plug 'zchee/deoplete-jedi'
-" Plug 'joshdick/onedark.vim'
-" Plug 'rust-lang/rust.vim'
-" Plug 'autozimu/LanguageClient-neovim', {
-"         \ 'branch': 'next',
-"         \ 'do': 'bash install.sh'}
-
 call plug#end()
-
 
 " Theme
 syntax on
-" colorscheme onedark
+set termguicolors
+set background=dark
+colorscheme deep-space
 let g:airline_theme='deus'
-
-" Enable alignment
-let g:neoformat_basic_format_align = 1
-
-" Enable tab to space conversion
-let g:neoformat_basic_format_retab = 1
-
-" Enable trimming of trailing whitespaces
-let g:neoformat_basic_format_trim = 1
-
-" Python linter
-let g:neomake_python_enabled_makers = ['pylint']
+"
+" Completion window colours (white on dark grey)
+hi Pmenu ctermbg=8   
+hi Pmenu ctermfg=15
 
 " Toggle spell checking
 nnoremap <leader>s :set invspell<CR>
@@ -62,17 +49,8 @@ nnoremap <leader>s :set invspell<CR>
 " Clear highlighting
 nnoremap <leader><space> :nohl<CR>
 
+" CoC config
+source ~/.config/nvim/plug-config/coc.vim
 
-" let g:deoplete#enable_at_startup = 1
-
-" Rust format on save
-" let g:rustfmt_autosave = 1
-
-" let g:LanguageClient_serverCommands = {
-"         \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
-" \}
-
-" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" nnoremap <silent> <leader> H :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" Disable gutter display by default (only shows when needed)
+set signcolumn=no
