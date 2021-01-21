@@ -1,6 +1,6 @@
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -164,9 +164,6 @@ eval "$(register-python-argcomplete pipx)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 alias tmx=tmuxinator
 
 alias gitpullall='find . -name ".git" -type d | sed "s/\/.git//" |  xargs -P10 -I{} git -C {} pull'
@@ -175,3 +172,26 @@ if [ ! -f ~/.zshrc.local ]; then
 	touch ~/.zshrc.local
 fi
 source /home/samm/.zshrc.local
+
+SSH_ENV=$HOME/.ssh/environment
+# start the ssh-agent
+function start_agent {
+	echo "Initializing new SSH agent..."
+	# spawn ssh-agent
+	/usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
+	echo Succeeded
+	chmod 600 ${SSH_ENV}
+	. ${SSH_ENV} > /dev/null
+	/usr/bin/ssh-add
+}
+
+if [ -f "${SSH_ENV}"  ]; then
+	. ${SSH_ENV} > /dev/null
+	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		start_agent;
+	}
+else
+	start_agent;
+fi
+
+export PATH=/usr/local/rvm/bin/:$PATH
