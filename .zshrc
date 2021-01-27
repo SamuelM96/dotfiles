@@ -132,3 +132,9 @@ fi
 
 # Ruby Version Manager
 export PATH=/usr/local/rvm/bin/:$PATH
+
+# Terminal emacs
+alias em="emacs -nw"
+
+# "What alias" to search aliases
+alias wa="alias | grep -i "
