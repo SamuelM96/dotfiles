@@ -134,7 +134,8 @@ fi
 export PATH=/usr/local/rvm/bin/:$PATH
 
 # Terminal emacs
-alias em="emacs -nw"
+export ALTERNATE_EDITOR=""
+alias em="emacsclient -tty"
 
 # "What alias" to search aliases
 alias wa="alias | grep -i "
