@@ -154,8 +154,7 @@ if command -v exa >/dev/null; then
 	alias lsd="exa -lah --sort=mod"
 fi
 
-# Replace cat with bat
+# Mouse scroll with bat
 if command -v bat >/dev/null; then
-	alias cat="bat"
 	export BAT_PAGER="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
 fi
