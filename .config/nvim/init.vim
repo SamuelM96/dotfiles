@@ -34,11 +34,10 @@ call plug#end()
 
 " Theme
 syntax on
-" set termguicolors
 set background=dark
 colorscheme deep-space
 let g:airline_theme='deus'
-"
+
 " Completion window colours (white on dark grey)
 hi Pmenu ctermbg=8   
 hi Pmenu ctermfg=15
