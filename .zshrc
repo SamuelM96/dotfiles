@@ -135,7 +135,27 @@ export PATH=/usr/local/rvm/bin/:$PATH
 
 # Terminal emacs
 export ALTERNATE_EDITOR=""
-alias em="emacsclient -tty"
+alias em="emacsclient -nw"
+alias emacs="emacsclient -c"
 
 # "What alias" to search aliases
 alias wa="alias | grep -i "
+
+# Get rid of annoying beep is less
+export LESS="$LESS -R -Q"
+
+# Replace ls with exa
+if command -v exa >/dev/null; then
+	alias ls="exa"
+	alias l='exa -lah'
+	alias ll='exa -lh'
+	alias la="exa -lah"
+	alias lsa="exa -laah"
+	alias lsd="exa -lah --sort=mod"
+fi
+
+# Replace cat with bat
+if command -v bat >/dev/null; then
+	alias cat="bat"
+	export BAT_PAGER="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
+fi
