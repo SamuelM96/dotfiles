@@ -53,6 +53,48 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq-default
+ indent-tabs-mode nil           ;; Spaces rather than tabs
+ tab-width 4                    ;; Tab width in spaces
+ window-combination-resize t    ;; Create new window with size based on all other windows
+ x-stretch-cursor t             ;; Stretch cursor to glyph width
+ )
+
+(setq undo-limit 80000000       ;; undo limit of 80Mb
+      evil-want-fine-undo t     ;; More granular undo while after exiting insert mode
+      auto-save-default t       ;; Autosave
+      c-default-style "k&r"     ;; K&R style indentation
+      c-basic-offset 4          ;; Identation width
+      org-startup-with-inline-images t ;; Inline images in org mode
+      org-image-actual-width t  ;; Allow image size override
+      )
+
+;; Iterate through CamelCase words
+(global-subword-mode 1)
+
+;; Word wrap
 (global-visual-line-mode t)
 
+;; Drag-stuff everywhere
 (drag-stuff-global-mode 1)
+
+;; Org Mode keywords
+(setq org-todo-keywords
+      '((sequence "TODO" "STARTED" "|" "DONE" "CANCELED")))
+
+
+;; Org Roam
+(setq org-roam-directory "~/org/roam")
+(use-package org-roam-server
+  :ensure t
+  :config
+  (setq org-roam-server-host "127.0.0.1"
+        org-roam-server-port 17811
+        org-roam-server-export-inline-images t
+        org-roam-server-authenticate nil
+        org-roam-server-network-poll t
+        org-roam-server-network-arrows nil
+        org-roam-server-network-label-truncate t
+        org-roam-server-network-label-truncate-length 60
+        org-roam-server-network-label-wrap-length 20))
+(org-roam-server-mode)
