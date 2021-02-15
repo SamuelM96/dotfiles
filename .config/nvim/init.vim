@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'jparise/vim-graphql'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for': ['markdown', 'vim-plug'] }
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'voldikss/vim-floaterm'
 " Plug 'scrooloose/nerdcommenter'
 " Plug 'scrooloose/nerdtree'
 call plug#end()
@@ -69,3 +70,6 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" Floaterm
+let g:floaterm_keymap_toggle = '<leader>t'
