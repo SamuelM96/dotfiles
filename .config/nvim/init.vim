@@ -21,6 +21,7 @@ Plug 'junegunn/fzf', { 'dir':'~/.fzf', 'do': { -> fzf#install()  }  }
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-surround'
@@ -38,7 +39,8 @@ call plug#end()
 syntax on
 set background=dark
 colorscheme deep-space
-let g:airline_theme='deus'
+let g:airline_theme='deep_space'
+let g:airline_powerline_fonts = 1
 
 " Completion window colours (white on dark grey)
 hi Pmenu ctermbg=8   
