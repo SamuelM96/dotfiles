@@ -79,14 +79,13 @@
 (drag-stuff-global-mode 1)
 
 ;; Org Mode keywords
-(setq org-todo-keywords
-      '((sequence "TODO" "STARTED" "|" "DONE" "CANCELED")))
+(after! org
+  (setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)" "cancelled(c)"))))
 
 
 ;; Org Roam
 (setq org-roam-directory "~/org/roam")
 (use-package org-roam-server
-  :ensure t
   :config
   (setq org-roam-server-host "127.0.0.1"
         org-roam-server-port 17811
@@ -97,4 +96,10 @@
         org-roam-server-network-label-truncate t
         org-roam-server-network-label-truncate-length 60
         org-roam-server-network-label-wrap-length 20))
-(org-roam-server-mode)
+; (org-roam-server-mode)
+
+;; Org
+(use-package org-fancy-priorities
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '("HIGH" "MEDIUM" "LOW")))

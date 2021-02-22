@@ -6,6 +6,7 @@ set relativenumber  "  Relative numbering, useful for relative commands
 set ignorecase      "  Case insensitive searching
 set smartcase		"  Care about case when using capitals
 set incsearch		"  Incremental searching
+set expandtab		"  Insert spaces when tab is pressed
 set tabstop=4       "  Tabs = 4 columns
 set softtabstop=4   "  Mimics tabstop 4 visually in files with a different tabstop
 set shiftwidth=4    "  Identation amount
